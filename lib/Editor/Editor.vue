@@ -28,14 +28,13 @@ export default {
   },
   setup(props, context) {
     const e = reactive(new E('#wangeditor'))
+    const self_config = reactive(Object.assign({}, e.config, defaultOptions, props.options))
     const self_content = ref('')
-
     const init = () => {
       if (e) {
-        const config = Object.assign({}, e.config, defaultOptions, props.config)
         e.highlight = hljs
         e.config = {
-          ...config
+          ...self_config
         }
         e.config.onchange = html => {
           const text = e.txt.text()
