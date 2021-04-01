@@ -1,7 +1,8 @@
 {
   "name": "vue3-wangeditor",
   "description": "基于Wangeditor富文本编辑器，用于Vue3.x的组件",
-  "version": "0.1.0",
+  "keywords": ["Vue3", "Wangeditor", "基于Wangeditor的Vue3组件"],
+  "version": "0.1.2",
   "author": "aidioute",
   "license": "MIT",
   "private": false,
