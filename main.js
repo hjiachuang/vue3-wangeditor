@@ -1,4 +1,5 @@
-import vWangEditor from './npm/index.umd.min'
+import install, {vWangeditor} from './npm/index.umd.min'
 import './npm/index.css'
 
-export default vWangEditor
+export default install
+export { vWangeditor }
