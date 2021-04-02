@@ -8,7 +8,7 @@
 </div>
 <br />
 
-## 📖项目介绍
+## 📖 项目介绍
 
 vue3-wangeditor 是一款基于 wangEditor 二次封装用于 Vue3.x 的 Web 富文本编辑器， 轻量、简洁、易用、开源免费。
 
@@ -20,7 +20,13 @@ wangEditor 当前是 `v4` 版本。
 
 内置了代码高亮插件 `highlight.js` ，使用的主题是 `Lioshi`
 
-## 💡注意
+## 💊 已知问题
+
+1. 如果控制台输出 `Object(...) is not define` 且空白页面 ，好像是这个错误内容吧，记不清楚了。如果报这个错误，那么恭喜你，你跟我一样犯了个低级错误，你在 `Vue 2.x` 中用了这个组件，所以报错了，这个组件是用 `Vue 3.x` 做的。
+
+2. 如果控制台输出 `[Vue Warn]: onMounted is called when there is no active component instance to be associa.......` ，页面正常显示，但不显示编辑器，我的解决方法是，直接把当前项目的 `node_modules` 删了，然后重新 `npm install` 。我一开始以为是个bug，头脑风暴了一下午，百度搜这个问题还搜不到，愣是浪费了一下午，最后灵光一闪，诶删了 `node_modules` 重新安装会不会就好了，然后，就没有然后了。
+
+## 💡 注意
 
 1. 基于 wangeditor 默认配置，修改了我自己的默认配置
 ```javascript
