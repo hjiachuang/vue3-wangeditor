@@ -24,7 +24,7 @@ wangEditor 当前是 `v4` 版本。
 
 1. 如果控制台输出 `Object(...) is not define` 且空白页面 ，好像是这个错误内容吧，记不清楚了。如果报这个错误，那么恭喜你，你跟我一样犯了个低级错误，你在 `Vue 2.x` 中用了这个组件，所以报错了，这个组件是用 `Vue 3.x` 做的。
 
-2. 如果控制台输出 `[Vue Warn]: onMounted is called when there is no active component instance to be associa.......` ，页面正常显示，但不显示编辑器，我的解决方法是，直接把当前项目的 `node_modules` 删了，然后重新 `npm install` 。我一开始以为是个bug，头脑风暴了一下午，百度搜这个问题还搜不到，愣是浪费了一下午，最后灵光一闪，诶删了 `node_modules` 重新安装会不会就好了，然后，就没有然后了。
+2. 如果控制台输出 `[Vue Warn]: onMounted is called when there is no active component instance to be associa.......` ，页面正常显示，但不显示编辑器，我的解决方法是，直接把当前项目的 `node_modules` 删了，然后重新 `npm install` 。我一开始以为是个bug，因为我对 `Compsition API` 还不是很熟悉，头脑风暴了一下午，百度搜这个问题还搜不到，愣是浪费了一下午，最后灵光一闪，诶删了 `node_modules` 重新安装会不会就好了，然后，就没有然后了。
 
 ## 💡 注意
 
