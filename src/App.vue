@@ -10,12 +10,8 @@
 </template>
 
 <script>
-import { vWangeditor } from '../lib/index'
 export default {
   name: 'App',
-  components: {
-    vWangeditor
-  },
   data () {
     return {
       options: {

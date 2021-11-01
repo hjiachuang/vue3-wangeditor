@@ -10,7 +10,7 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/lioshi.css'
 import defaultOptions from './options'
 
-import { setup, ref, reactive, onMounted, onUnmounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 
 export default {
   name: 'VueWangEditor',
@@ -26,21 +26,22 @@ export default {
       default: () => ({})
     }
   },
-  setup(props, context) {
-    const e = reactive(new E('#wangeditor'))
-    const self_config = reactive(Object.assign({}, e.config, defaultOptions, props.options))
-    const self_content = ref('')
+  setup (props, context) {
+    let e = null
+    const selfContent = ref('')
     const init = () => {
+      e = new E('#wangeditor')
+      const selfConfig = Object.assign({}, e.config, defaultOptions, props.options)
       if (e) {
         e.highlight = hljs
         e.config = {
-          ...self_config
+          ...selfConfig
         }
         e.config.onchange = html => {
           const text = e.txt.text()
           const editor = e
           if (html === '<p><br></p>') html = ''
-          self_content.value = html
+          selfContent.value = html
           context.emit('change', { html, text, editor })
         }
         e.config.onblur = html => {
@@ -63,26 +64,22 @@ export default {
         }
       }
     }
-
     onMounted(() => {
       init()
     })
-
     onUnmounted(() => {
       e.destroy()
     })
-
     watch(() => props.content, (content, prevContent) => {
       if (e) {
-        if (content && content !== self_content.value) {
-          self_content.value = content
+        if (content && content !== selfContent.value) {
+          selfContent.value = content
           e.txt.html(content)
         } else if (!content) {
           e.txt.append('')
         }
       }
     })
-
     watch(() => props.disable, (disable, prevDisable) => {
       if (e) {
         if (disable === true) {
@@ -92,12 +89,7 @@ export default {
         }
       }
     })
+    return {}
   }
 }
 </script>
-
-<style>
-#wangeditor ul li {
-  line-height: 1.8;
-}
-</style>

@@ -39,6 +39,13 @@ uploadImgAccept: ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'] // 默认没有 we
 uploadImgMaxLength: 1 // 同时上传的图片数量，默认是 100，我改成单文件上传
 ```
 
+
+## 📖 更新
+
+* 2021.11.01 版本: 0.1.4
+```
+上个版本把 wangeditor 组件创建的过程写在了 setup 函数中，导致页面加载时无法读取到dom元素而报错，在 Vue 3.0 的版本中可以正常执行，在最新的 Vue 3.2 中报错，现把创建 wangeditor 的移到了 onMounted 生命周期函数中。
+```
 ## 📦安装和使用
 
 NPM 安装
